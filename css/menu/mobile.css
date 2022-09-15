@@ -3,39 +3,45 @@
     padding: 20px;
     position: relative;
 }
+
 #nav {
-    box-sizing: border-box;;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
 }
+
 #item-list {
     display: flex;
     gap: 20px;
 }
 
-#item-list li a {
+#item-list a {
     padding: 10px 18px;
-    background: #c2c2c2;
+
     box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
     border-radius: 5px;
 }
+
 .disable {
     display: none;
 }
+
 /* Animação */
 @media(max-width:600px) {
     .disable {
         display: inline-block;
     }
+
     #menu-hamburger {
-        align-self: center;
-        display: flex;
-        position:relative;
+        position: relative;
         cursor: pointer;
-        transition: 3s;
+
     }
+
     #menu-hamburger::before {
-        content:"";
+        transition: .3s;
+
+        content: "";
         width: 22px;
         top: 8px;
         height: 1px;
@@ -44,7 +50,11 @@
         display: inline-block;
         position: absolute;
     }
+
     #menu-hamburger::after {
+
+        transition: .3s;
+
         content: '';
         height: 2px;
         width: 14px;
@@ -58,64 +68,53 @@
     /* Botão após aberto */
 
     #menu-hamburger.ativo::before {
-        
 
-        transition: .300s;
-        transform:rotate(-135deg);
-        width: 24px;
+        transform: rotate(-135deg);
+        width: 25px;
     }
+
     #menu-hamburger.ativo::after {
         position: relative;
         top: 4px;
-        left:8px;
-        transition: .300s;
+        left: 8px;
+
         border-top: none;
-        transform:rotate(135deg);
+        transform: rotate(135deg);
     }
 
-    @keyframes to-right {
-        0%{
-            width:0vw;
-        }
-        100%{
-            width: 60vw;
-        }
-    }
 
     #item-list {
-        display: none;
-        width: 0vw;
-        transition: 1s;
-       
-    }
-    #item-list.ativo {
+        overflow-x: hidden;
+        visibility: hidden;
         display: inline-block;
         position: absolute;
         left: 0;
-        margin-top: 48px;
-        height: calc(100vh - 68px);
-        width: 60vw;
-        gap: 0px;
-        background: #dfdede;
-        animation: to-right 1s;
-
-    }
-    #item-list li a {
-        display: none;
-        width: 0vw;
+        width: 0;
         transition: 1s;
-    }
-    #item-list li a.ativo {
-        overflow-x:hidden;
-        background: #cfcfcf;
-        padding: 20px 10px;
-        border-bottom: 1px solid rgba(0, 0, 0, .25);
-        display: inline-block;
-        text-align: left;
-        width: 60vw;
-        border-radius: 0;
-        
-        animation: to-right 1s;
+        margin-top: 48px;
+        gap: 0px;
+        height: calc(100vh - 68px);
 
     }
+
+
+    #item-list.ativo {
+        visibility: visible;
+        width: 60vw;
+        background: #dfdede;
+
+    }
+
+    #item-list a {
+        padding: 1rem;
+        display: inline-block;
+        width: 100%;
+        background: #e6e4e4;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+
+    }
+
+
 }
